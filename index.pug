@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet", href="../css/style.css")
+    body 
+        - var games = [{title: 'Minecraft', releaseDate: '10 мая 2009', image: 'Minecraft.avif'}, {title: 'Grand Theft Auto V', releaseDate: '17 сентября 2013', image: 'GTAV.jpg'}, {title: 'Dota 2', releaseDate: '9 июля 2013', image: 'Dota2.jpg'},{title: 'Fortnite', releaseDate: '21 июля 2017', image: 'Fortnite.jpg'}, {title: 'Roblox', releaseDate: '1 сентября 2006', image: 'Roblox.jpg'},{title: 'Farming Simulator 25', releaseDate: '12 ноября 2024', image: 'FS25.jpg'},{title: 'Red Dead Redemption 2', releaseDate: '5 ноября 2019', image: 'RDR2.jpg'}]
+        .container
+            h1.title Топ 7 игр по мнению Валеры трубочиста
+            p На текущий момент игр можно насчитать больше 10 тысяч. Трубочист валера потрудился и составил топ популярных и интересных игр:
+            ul.grid
+                each game in games
+                    li.grid__item
+                        article.card
+                            a.card__image(href="") 
+                                img(src=`../img/${game.image}`)
+                            h2.card__title
+                                a(href="")=game.title
+                            span.card__date=`Дата выхода: ${game.releaseDate}`
